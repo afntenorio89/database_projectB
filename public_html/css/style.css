@@ -1,0 +1,48 @@
+.jumbotron {
+  text-align: center;
+  padding:0px;
+}
+
+.brand-navlogo {
+  width: 100px;
+  padding-bottom: 4px;
+  opacity: 0.8;
+}
+
+.jumbotron.centered-rows.{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 550px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+  .row.content {height: auto;}
+}
+
+/*Materials css */
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+.page-header h2{
+    margin-top: 0;
+}
+table tr td:last-child a{
+    margin-right: 15px;
+}
+/*Material CSS End */
+
+#error {
+  color: red;
+}

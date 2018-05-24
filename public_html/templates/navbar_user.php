@@ -9,10 +9,10 @@
         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Log In</a>
+        <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="requestaccess.php">Request Access</a>
+        <a class="nav-link" href="forms/add_user.php">Add User</a>
       </li>
     </ul>
     <form action="includes/logout_inc.php" method="POST" class="form-inline my-2 my-lg-0">
