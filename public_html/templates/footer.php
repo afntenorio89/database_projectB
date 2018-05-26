@@ -7,7 +7,6 @@
 include_once("forms/part_add_form.php");
 include_once("forms/project_add_form.php");
 include_once("forms/partslist_add_form.php");
-include_once("actions/part_delete_action.php");
 ?>
 </body>
 </html>

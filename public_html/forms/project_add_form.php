@@ -9,59 +9,41 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="projects/project_add.php" method="post">
+        <form action="sql/project_add_sql.php" method="post">
           <div class="form-group row">
-            <label for="project_lotNumber" class="col-sm-2 col-form-label">Lot Number</label>
+            <label for="project_id" class="col-sm-2 col-form-label">Project ID</label>
             <div class="col-sm-10">
-              <input type="project_lotNumber" class="form-control" name="project_lotNumber" placeholder="IR12190-04">
+              <input type="text" class="form-control" name="project_id" placeholder="IR12190-04">
             </div>
           </div>
           <div class="form-group row">
-            <label for="project_projectID" class="col-sm-2 col-form-label">Project ID</label>
+            <label for="project_name" class="col-sm-2 col-form-label">Project Name</label>
             <div class="col-sm-10">
-              <input type="project_projectID" class="form-control" name="project_projectID" placeholder="DEM101">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="project_itemNumber" class="col-sm-2 col-form-label">Item Number</label>
-            <div class="col-sm-10">
-              <input type="project_itemNumber" class="form-control" name="project_itemNumber" placeholder="D.001">
+              <input type="text" class="form-control" name="project_name" placeholder="DEM101">
             </div>
           </div>
           <div class="form-group row">
             <label for="project_description" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-              <input type="project_description" class="form-control" name="project_description" placeholder="Rabbit Build">
+              <textarea class="form-control" name="project_description" rows="2"></textarea>
             </div>
           </div>
           <div class="form-group row">
-            <label for="project_refDWG" class="col-sm-2 col-form-label">Ref. DWG</label>
+            <label for="project_manager" class="col-sm-2 col-form-label">Manager</label>
             <div class="col-sm-10">
-              <input type="project_refDWG" class="form-control" name="project_refDWG" placeholder="">
+              <input type="text" class="form-control" name="project_manager" placeholder="Dr. Feelgood">
             </div>
           </div>
           <div class="form-group row">
-            <label for="project_refMP" class="col-sm-2 col-form-label">Ref. MP</label>
+            <label for="project_lead" class="col-sm-2 col-form-label">Lead</label>
             <div class="col-sm-10">
-              <input type="project_refMP" class="form-control" name="project_refMP" placeholder="">
+              <input type="text" class="form-control" name="project_lead" placeholder="">
             </div>
           </div>
           <div class="form-group row">
-            <label for="project_supplier" class="col-sm-2 col-form-label">Supplier</label>
+            <label for="project_members" class="col-sm-2 col-form-label">Members</label>
             <div class="col-sm-10">
-              <input type="project_supplier" class="form-control" name="project_supplier">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="project_assignedBy" class="col-sm-2 col-form-label">Assigned By:</label>
-            <div class="col-sm-10">
-              <input type="project_assignedBy" class="form-control" name="project_assignedBy">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="project_qty" class="col-sm-2 col-form-label">Quantity</label>
-            <div class="col-sm-10">
-              <input type="project_qty" class="form-control" name="project_qty">
+              <input type="project_members" class="form-control" name="project_members" placeholder="">
             </div>
           </div>
           <div class="form-group row">
@@ -70,14 +52,6 @@
               <textarea class="form-control" name="project_comment" rows="3"></textarea>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="project_bomID" class="col-sm-2 col-form-label">BoM ID</label>
-            <div class="col-sm-10">
-              <input type="project_bomID" class="form-control" name="project_bomID">
-            </div>
-          </div>
-
-
           <div class="form-group row">
             <div class="col-sm-10">
               <button name="submit" value="submit" type="submit" class="btn btn-primary">Add project</button>

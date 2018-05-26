@@ -18,7 +18,7 @@
                       <div class="col-md-12">
                           <div class="page-header clearfix">
                               <h2 class="pull-left">Inventory</h2>
-                              <a href="#" data-toggle="modal" data-target="#form_mat_add" class="btn btn-success pull-right">Add New parts</a>
+                              <a href="#" data-toggle="modal" data-target="#part_add_form" class="btn btn-success pull-right">Add New parts</a>
                           </div>
                           <?php
                           // Include config file
@@ -36,27 +36,27 @@
                                               echo "<th>Part Name</th>";
                                               echo "<th>Primary Loc.</th>";
                                               echo "<th>Total Qty.</th>";
+                                              echo "<th>Unit</th>";
                                               echo "<th>Secondary Loc.</th>";
                                               echo "<th>Secondary Qty.</th>";
-                                              echo "<th>Units of Meas.</th>";
                                               echo "<th>Action</th>";
                                           echo "</tr>";
                                       echo "</thead>";
                                       echo "<tbody>";
                                       while($row = mysqli_fetch_array($result)){
                                           echo "<tr>";
-                                              echo "<td>" . $row['part_projectID'] . "</td>";
-                                              echo "<td>" . $row['part_partNumber'] . "</td>";
-                                              echo "<td>" . $row['part_partName'] . "</td>";
+                                              echo "<td>" . $row['project_id'] . "</td>";
+                                              echo "<td>" . $row['part_number'] . "</td>";
+                                              echo "<td>" . $row['part_name'] . "</td>";
                                               echo "<td>" . $row['part_primaryLocation'] . "</td>";
-                                              echo "<td>" . $row['part_totalQty'] . "</td>";
+                                              echo "<td>" . $row['part_quantity'] . "</td>";
+                                              echo "<td>" . $row['part_unitOfMeasurement'] . "</td>";
                                               echo "<td>" . $row['part_secondaryLocation'] . "</td>";
-                                              echo "<td>" . $row['part_secondaryQty'] . "</td>";
-                                              echo "<td>" . $row['part_uom'] . "</td>";
+                                              echo "<td>" . $row['part_secondaryQuantity'] . "</td>";
                                               echo "<td>";
-                                                  echo "<a href='parts_read.php?part_id=". $row['part_id'] ."' title='Additional Information' data-toggle='tooltip'><span class='fab fa-readme fa-lg'></span></a>";
-                                                  echo "<a href='update.php?part_id=". $row['part_id'] ."' title='Update Record' data-toggle='tooltip'><span class='fas fa-edit fa-lg'></span></a>";
-                                                  echo "<a href='forms/parts_delete_form.php?part_id=". $row['part_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='fas fa-minus-circle fa-lg'></span></a>";
+                                                  echo "<a href='actions/part_read_action.php?part_id=". $row['part_id'] ."' title='Additional Information' data-toggle='tooltip'><span class='fab fa-readme fa-lg'></span></a>";
+                                                  echo "<a href='actions/part_update_action.php?part_id=". $row['part_id'] ."' title='Update Record' data-toggle='tooltip'><span class='fas fa-edit fa-lg'></span></a>";
+                                                  echo "<a href='actions/part_delete_action.php?part_id=". $row['part_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='fas fa-minus-circle fa-lg'></span></a>";
                                               echo "</td>";
                                           echo "</tr>";
                                       }

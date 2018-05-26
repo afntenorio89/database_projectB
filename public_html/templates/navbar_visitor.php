@@ -16,7 +16,7 @@
       </li>
     </ul>
     <iframe src="http://free.timeanddate.com/clock/i68ipsmn/n137/fn17/fs18/tct/pct/tt0/tw1/tm1/tb2" frameborder="0" width="305" height="24" allowTransparency="true"></iframe>
-    <form action="includes/login_inc.php" method="POST" class="form-inline my-2 my-lg-0">
+    <form action="sql/login_sql.php" method="POST" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Username/e-mail" name="username">
       <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Login</button>
