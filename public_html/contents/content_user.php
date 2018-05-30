@@ -12,20 +12,46 @@
     <div class="col-sm-10">
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <h2 class="pull-right">Inventory</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9">
+                  <a href="#" data-toggle="modal" data-target="#part_add_form" class="btn btn-success pull-right">Add New parts</a>
+                </div>
+                <div class="col-md-3">
+                  <form action="index.php" method="GET" class="form-inline">
+                    <div class="form-group mx-sm-6">
+                      <input name="search_item" type="text" class="form-control"  placeholder="Search">
+                    </div>
+                    <div class="form-group mx-auto">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                    <div class="form-group ml-auto">
+                      <a href="index.php">Clear Search</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
 
-              <div class="container-fluid">
                   <div class="row">
                       <div class="col-md-12">
-                          <div class="page-header clearfix">
-                              <h2 class="pull-left">Inventory</h2>
-                              <a href="#" data-toggle="modal" data-target="#part_add_form" class="btn btn-success pull-right">Add New parts</a>
-                          </div>
                           <?php
                           // Include config file
                           require_once 'configs/database.php';
 
-                          // Attempt select query execution
-                          $sql = "SELECT * FROM parts";
+                          if(isset($_GET['search_item'])){
+                            $search = mysqli_real_escape_string($conn,$_GET['search_item']);
+                            $sql = "SELECT * FROM parts WHERE part_name LIKE '%$search%'
+                                                         OR part_number LIKE '%$search%'
+                                                         OR project_id LIKE '%$search%'";
+                          } else {
+                            $sql = "SELECT * FROM parts";
+                          }
+
                           if($result = mysqli_query($conn, $sql)){
                               if(mysqli_num_rows($result) > 0){
                                   echo "<table class='table table-bordered table-striped'>";
@@ -75,7 +101,6 @@
                         //  mysqli_close($conn);
                           ?>
                       </div>
-
                   </div>
               </div>
         </div>
@@ -167,7 +192,7 @@
               <div class="row">
                   <div class="col-md-12">
                       <div class="page-header clearfix">
-                          <h2 class="pull-left">Bill of parts</h2>
+                          <h2 class="pull-left">Parts Lists</h2>
                           <a href="#" data-toggle="modal" data-target="#form_bom_add" class="btn btn-success pull-right">Add BoM</a>
                       </div>
                       <?php
