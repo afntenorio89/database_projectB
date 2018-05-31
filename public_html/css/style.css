@@ -46,3 +46,8 @@ table tr td:last-child a{
 #error {
   color: red;
 }
+
+.mylink {
+  text-align: right;
+  color: red;
+}
