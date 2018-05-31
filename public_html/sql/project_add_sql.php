@@ -10,6 +10,7 @@ $project_manager ="";
 $project_lead ="";
 $project_members ="";
 $project_comment ="";
+$project_status ="";
 
 
 //Error value intilization for key VALUES
@@ -38,6 +39,7 @@ if(isset($_POST['submit'])){
     $project_lead = mysqli_real_escape_string($conn,$_POST["project_lead"]);
     $project_members = mysqli_real_escape_string($conn,$_POST["project_members"]);
     $project_comment = mysqli_real_escape_string($conn,$_POST["project_comment"]);
+    $project_status = mysqli_real_escape_string($conn,$_POST["project_status"]);
 
 
 
@@ -62,35 +64,26 @@ if(isset($_POST['submit'])){
         // Check input errors before inserting in database
         if(empty($project_id_err) && empty($project_name_err)){
             // Prepare an insert statement
-            $sql = "INSERT INTO projects (project_id, project_name, project_description, project_manager, project_lead, project_members, project_comment) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO projects (project_id, project_name, project_description, project_manager, project_lead, project_members, project_comment, project_status) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
 
             if($stmt = mysqli_prepare($conn, $sql)){
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "sssssss", $param_project_id, $param_part_number, $param_part_name, $param_part_primaryLocation, $param_part_secondaryLocation, $param_part_cleanroomLocation, $param_part_quantity, $param_part_unitOfMeasurement, $param_part_expirationDate, $param_part_comment, $param_part_hazardous, $param_part_cers, $param_part_msds, $param_part_flamability, $param_part_instability, $param_part_health, $param_part_specificHazard);
+                mysqli_stmt_bind_param($stmt, "ssssssss", $param_project_id, $param_project_name, $param_project_description, $param_project_manager, $param_project_lead, $param_project_members, $param_project_comment, $param_project_status);
 
-                // Set parameters
                 $param_project_id = $project_id;
-                $param_part_number = $part_number;
-                $param_part_name = $part_name;
-                $param_part_primaryLocation = $part_primaryLocation;
-                $param_part_secondaryLocation = $part_secondaryLocation;
-                $param_part_cleanroomLocation = $part_cleanroomLocation;
-                $param_part_quantity = $part_quantity;
-                $param_part_unitOfMeasurement = $part_unitOfMeasurement;
-                $param_part_expirationDate = $part_expirationDate;
-                $param_part_comment = $part_comment;
-                $param_part_hazardous = $part_hazardous;
-                $param_part_cers = $part_cers;
-                $param_part_msds = $part_msds;
-                $param_part_flamability = $part_flamability;
-                $param_part_instability = $part_instability;
-                $param_part_health = $part_health;
-                $param_part_specificHazard = $part_specificHazard;
+                $param_project_name = $project_name;
+                $param_project_description = $project_description;
+                $param_project_manager = $project_manager;
+                $param_project_lead = $project_lead;
+                $param_project_members = $project_members;
+                $param_project_comment = $project_comment;
+                $param_project_status = $project_status;
+
 
                 // Attempt to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
                     // Records created successfully. Redirect to landing page
-                    header("location: ../index.php");
+                    header("Location: ../index.php");
                     exit();
                 } else{
                     echo "Something went wrong. Please try again.";
